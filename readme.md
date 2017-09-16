@@ -7,13 +7,16 @@ This is a simple JSON search engine that searches from three different JSON file
 
 ## Features/Usage
 
-Command line interface for this search can be run by executing the **production.rb** file in the top directory.  
- - 2 choices for search for each of the three objects
+Command line interface for this search can be run by executing the **production.rb** file in the top directory.  (e.g. `ruby production.rb`)
+
+- you can search any of the three objects
+- two choices for each object
 
 ## Features that were left out (for now)
 
   - Full data model mapping between users and tickets, users and organizations, and organizations and tickets
   - Nested searching (e.g. being able to search all tickets for a given user)
+  - map datatypes to the different fields so that we can allow users to search any field rather than the two that I've manually provided
 
 ## Installation
 
