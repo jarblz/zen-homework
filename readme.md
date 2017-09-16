@@ -13,12 +13,11 @@ Command line interface for this search can be run by executing the **production.
 ## Features that were left out (for now)
 
   - Full data model mapping between users and tickets, users and organizations, and organizations and tickets
+  - Nested searching (e.g. being able to search all tickets for a given user)
 
 ## Installation
 
 Clone the repo, run the scripts listed above
-
-## API Reference
 
 ## Tests
 
