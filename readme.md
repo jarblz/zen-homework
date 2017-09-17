@@ -10,20 +10,8 @@ This is a simple JSON search engine that searches from three different JSON file
 Command line interface for this search can be run by executing the **production.rb** file in the **executables** directory.  
 - e.g. `cd executables`
 - `bash search.sh`
-
 - you can search any of the three objects
 - two choices for each object
-
-## Features that were left out (for now)
-
-  - Full data model mapping between users and tickets, users and organizations, and organizations and tickets
-  - Nested searching (e.g. being able to search all tickets for a given user)
-  - map datatypes to the different fields so that we can allow users to search any field:
-    - I know this didn't quite match spec that was provided in the assignment, but I decided it would be better to build in the mapping for only 2 fields per object, and have the infrastructure to map each field to a datatype that will allow us to accurately search once all the mappings are built.
-
-## Installation
-
-Clone the repo, run the scripts listed above
 
 ## Tests
 
@@ -36,6 +24,19 @@ Tests are run by executing the **test.sh** bash script in the executables direct
 - It is unconventional because I didn't see a clear path forward implementing RSpec to test a single ruby script outside the context of a rails app.
 - see the comments in the **test_search.sh** for more info
 - I estimate test coverage very high. (>90%). That being said, I would try and convert all these tests into RSpec if this was a script in a conventional rails app.
+
+
+## Installation
+
+Clone the repo, run the scripts listed above
+
+## Features that were left out (for now)
+
+  - Full data model mapping between users and tickets, users and organizations, and organizations and tickets
+  - Nested searching (e.g. being able to search all tickets for a given user)
+  - map datatypes to the different fields so that we can allow users to search any field:
+    - I know this didn't quite match spec that was provided in the assignment, but I decided it would be better to build in the mapping for only 2 fields per object, and have the infrastructure to map each field to a datatype that will allow us to accurately search once all the mappings are built.
+
 
 
 ##Shortcomings
