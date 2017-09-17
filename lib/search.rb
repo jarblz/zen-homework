@@ -43,8 +43,8 @@ class Search
 
   def fuzzy_search(json, search_term)
     result = []
-    json.select do |item|
-      next unless item[search_field].downcase.include? search_term
+    json.each do |item|
+      next unless item[search_field].to_s.downcase.include? search_term.to_s.downcase
       result << with_related_fields(item)
     end
     return result
@@ -52,9 +52,10 @@ class Search
 
   def exact_search(json, search_term)
     result = []
-    json.select do |item|
-      next unless item[search_field] == search_term
-      result << with_related_fields(item)
+    json.each do |item|
+      if item[search_field].to_s == search_term.to_s
+        result << with_related_fields(item)
+      end
     end
     return result
   end

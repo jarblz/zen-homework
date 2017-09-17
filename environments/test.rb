@@ -1,3 +1,3 @@
-require_relative 'io'
+require '../lib/io'
 
 Interface.new("test").main_loop

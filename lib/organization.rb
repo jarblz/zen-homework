@@ -1,6 +1,6 @@
 require 'json'
 class Organization
-  SEARCH_TERMS = {"1" => "name", "2" => "id"}
+  SEARCH_TERMS = {"1" => "name", "2" => "_id"}
   TERM_TYPES = {"1" => "fuzzy_search", "2" => "exact"}
   RELATED_OBJECTS = {}
   def initialize(*args)
@@ -12,7 +12,7 @@ class Organization
   end
 
   def self.file_name
-    './data/organizations.json'
+    '../data/organizations.json'
   end
 
 end

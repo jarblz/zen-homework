@@ -1,0 +1,1 @@
+ruby ../environments/production.rb

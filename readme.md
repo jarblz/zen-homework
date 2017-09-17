@@ -7,7 +7,7 @@ This is a simple JSON search engine that searches from three different JSON file
 
 ## Features/Usage
 
-Command line interface for this search can be run by executing the **production.rb** file in the top directory.  (e.g. `ruby production.rb`)
+Command line interface for this search can be run by executing the **production.rb** file in the **executables** directory.  e.g. `bash ./executables/search.sh`
 
 - you can search any of the three objects
 - two choices for each object
@@ -24,6 +24,11 @@ Clone the repo, run the scripts listed above
 
 ## Tests
 
-Tests are run by executing the **test.sh** bash script
+Tests are run by executing the **test.sh** bash script in the executables directory
 
-e.g. `bash test.sh`
+e.g. `bash ./executables/test_search.sh`
+
+**A Quick Note on My Testing Method:**
+- It is unconventional because I didn't see a clear path forward implementing RSpec to test a single ruby script outside the context of a rails app.
+- see the comments in the **test_search.sh** for more info
+- I estimate test coverage very high. (>90%). That being said, I would try and convert all these tests into RSpec if this was a script in a conventional rails app.

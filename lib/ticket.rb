@@ -1,10 +1,9 @@
 require 'json'
 
-class User
-  SEARCH_TERMS = {"1" => "name", "2" => "id"}
+class Ticket
+  SEARCH_TERMS = {"1" => "subject", "2" => "type"}
   TERM_TYPES = {"1" => "fuzzy_search", "2" => "exact"}
-
-  RELATED_OBJECTS = {"Organization": "organization_id"}
+  RELATED_OBJECTS = {"Organization": "organization_id", "User": "assignee_id"}
   def initialize(*args)
     puts "New #{self.class.name}"
   end
@@ -14,8 +13,7 @@ class User
   end
 
   def self.file_name
-    './data/users.json'
+    '../data/tickets.json'
   end
-
 
 end
