@@ -37,9 +37,7 @@ Clone the repo, run the scripts listed above
   - map datatypes to the different fields so that we can allow users to search any field:
     - I know this didn't quite match spec that was provided in the assignment, but I decided it would be better to build in the mapping for only 2 fields per object, and have the infrastructure to map each field to a datatype that will allow us to accurately search once all the mappings are built.
 
-
-
-##Shortcomings
+## Shortcomings
 - The main thing that I wish I had done better, would be that the classes contained `organization.rb`, `ticket.rb`, and `user.rb` are underutilized.  
 - There are no instance methods in these classes so they essentially just accomplish the task of storing immutable parameters specific to each class that inform some of the search behavior.
 - I would have liked to create instance and class methods similar to how activerecord works for these classes.  However most of this functionality found its way into `search.rb` as I was taking care to keep the code DRY.
