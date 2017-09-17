@@ -3,10 +3,11 @@ require 'json'
 class User
   SEARCH_TERMS = {"1" => "name", "2" => "id"}
   TERM_TYPES = {"1" => "fuzzy_search", "2" => "exact"}
-
+  # when inlining into a related object, these are the fields that will display
+  SUMMARY_FIELDS = {"User Name" => "name"}
   RELATED_OBJECTS = {"Organization": "organization_id"}
+
   def initialize(*args)
-    puts "New #{self.class.name}"
   end
 
   def search_terms

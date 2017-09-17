@@ -3,9 +3,10 @@ require 'json'
 class Ticket
   SEARCH_TERMS = {"1" => "subject", "2" => "type"}
   TERM_TYPES = {"1" => "fuzzy_search", "2" => "exact"}
-  RELATED_OBJECTS = {"Organization": "organization_id", "User": "assignee_id"}
+  RELATED_OBJECTS = {"Organization" => "organization_id", "User" => "assignee_id"}
+  # when inlining into a related object, these are the fields that will display
+  SUMMARY_FIELDS = {"Ticket Name" => "subject", "Ticket Priority" => "priority"}
   def initialize(*args)
-    puts "New #{self.class.name}"
   end
 
   def search_terms

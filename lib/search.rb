@@ -4,9 +4,10 @@ class Search
   attr_accessor :object
   attr_accessor :term_id
   attr_accessor :env
+  attr_accessor :id
 
-  def initialize(object, term_id, environment)
-    @object, @term_id, @env = object, term_id, environment
+  def initialize(object, term_id, environment, id=nil)
+    @object, @term_id, @env, @id = object, term_id, environment, id
   end
 
   def by_term
@@ -25,6 +26,23 @@ class Search
     by_term
   end
 
+  def related_fields_hash
+    json = JSON.parse(File.open(object.class.file_name).read)
+    related_fields(find(json, id))
+  end
+
+  def related_fields(related_object)
+    result = {}
+    if related_object.empty?
+      result["Related #{self.object.class}"] = "None"
+    else
+      object.class::SUMMARY_FIELDS.keys.each do |k|
+        result[k] = related_object.first[object.class::SUMMARY_FIELDS[k]]
+      end
+    end
+    return result
+  end
+
   def search_field
     object.search_terms[term_id]
   end
@@ -34,10 +52,18 @@ class Search
   end
 
   def with_related_fields(item)
-    # I didn't feel like getting into this functionality was worth the time
     # and complexity for now.  The mapping stored in each object (RELATED_FIELDS),
     # needs more work than I'm willing to put in at this point.  Better to limit
     # the scope initially and build on to it later
+    if object.class::RELATED_OBJECTS
+      item["= + = + = + = + = Related Objects Section"] = " = + = + = + = + ="
+      object.class::RELATED_OBJECTS.each do |k,v|
+        Search.new(Object.const_get(k).new(), nil, self.env, item[v])
+        .related_fields_hash.each do |field_name, field_value|
+            item[field_name] = field_value
+          end
+      end
+    end
     return item
   end
 
@@ -58,6 +84,10 @@ class Search
       end
     end
     return result
+  end
+
+  def find(json, id)
+    json.select {|item| item["_id"].to_s == id.to_s}
   end
 
   def human_readable(result_set)

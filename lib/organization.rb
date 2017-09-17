@@ -3,8 +3,10 @@ class Organization
   SEARCH_TERMS = {"1" => "name", "2" => "_id"}
   TERM_TYPES = {"1" => "fuzzy_search", "2" => "exact"}
   RELATED_OBJECTS = {}
+  # when inlining into a related object, these are the fields that will display
+  SUMMARY_FIELDS = {"Organization Name" => "name"}
+
   def initialize(*args)
-    puts "New #{self.class.name}"
   end
 
   def search_terms
