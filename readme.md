@@ -15,7 +15,7 @@ Command line interface for this search can be run by executing the **production.
 
 ## Tests
 
-Tests are run by executing the **test.sh** bash script in the executables directory
+Tests are run by executing the **test_search.sh** bash script in the executables directory
 
 - e.g. `cd executables`
 - `bash test_search.sh`
